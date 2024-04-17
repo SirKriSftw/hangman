@@ -6,8 +6,9 @@ class Game
   def initialize(word)
     @word = word
     @guessed_letters = ["a","e","i","o","u"]
-    @player = Player.new(self)
     print_board()
+    @player = Player.new(self)
+
   end
 
   def print_board()
@@ -21,5 +22,8 @@ class Game
       print "_ "
       end
     end
+    print "\t\t"
   end
+
+
 end
