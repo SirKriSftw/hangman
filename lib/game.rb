@@ -6,9 +6,6 @@ class Game
   def initialize(word)
     @word = word
     @correct_letters = word.split("")
-    if(correct_letters[-1] == "\n")
-      correct_letters.pop
-    end
     @guessed_letters = []
     @guessed = false
     @player = Player.new(self)

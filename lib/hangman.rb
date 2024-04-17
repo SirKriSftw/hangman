@@ -12,7 +12,7 @@ end
 
 def select_word(file)
   lines = File.readlines(file)
-  word = lines[rand(0..lines.length-1)]
+  word = lines[rand(0..lines.length-1)].strip
 end
 
 file = "10000 words.txt"
