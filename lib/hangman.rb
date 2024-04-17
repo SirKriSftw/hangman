@@ -19,4 +19,5 @@ if File.exist?(file)
   word = select_word(file)
 
   game = Game.new(word);
+  game.play()
 end

@@ -4,14 +4,13 @@ class Player
   def initialize(game)
     @game = game
     @health = @@base_health
-    print_health()
-    take_guess()
   end
 
   def take_damage()
     if(health > 0)
-      health -= 1
+      self.health -= 1
     else
+      self.health = -1
       puts "Game Over"
     end
   end
