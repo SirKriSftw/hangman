@@ -15,7 +15,7 @@ def select_word(file)
   word = lines[rand(0..lines.length-1)]
 end
 
-file = "1000 words.txt"
+file = "10000 words.txt"
 if File.exist?(file)
   clean_file(file)
   word = select_word(file)
