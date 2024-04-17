@@ -29,4 +29,6 @@ class Game
     display = guessed_letters.sort()
     print "\nGuessed letters: #{display}"
   end
+
+  
 end
