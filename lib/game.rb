@@ -41,5 +41,13 @@ class Game
     unless correct_letters.include?(letter)
       player.take_damage()
     end
+    check_win()
+  end
+
+  def check_win()
+    if (correct_letters.all? { |letter| guessed_letters.include?(letter)})
+      self.guessed = true
+      puts "You win!"
+    end
   end
 end
