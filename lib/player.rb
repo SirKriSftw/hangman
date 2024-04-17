@@ -12,7 +12,7 @@ class Player
       self.health -= 1
     else
       self.health = -1
-      puts "Game Over"
+      puts "Game Over | Word was: #{game.word}"
     end
   end
 
