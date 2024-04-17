@@ -2,7 +2,7 @@ file = "1000 words.txt"
 
 def clean_file(file)
   lines = File.readlines(file)
-  cleaned_file = lines.map { |line| line.length < 5? "" : line}
+  cleaned_file = lines.map { |line| line.length < 5 || line.length > 12? "" : line}
   cleaned_file.reject! { |line| line.empty? }
   File.open(file, "w") { |line| line.puts cleaned_file}
 end
