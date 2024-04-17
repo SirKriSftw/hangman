@@ -1,6 +1,7 @@
 class Player
   attr_accessor :game, :health
   @@base_health = 7
+
   def initialize(game)
     @game = game
     @health = @@base_health
@@ -30,7 +31,7 @@ class Player
       print "Guess a letter: "
       letter = gets
       letter = letter.chomp
-      if letter.length == 1 && letter.downcase.ord >= 97 && letter.downcase.ord <= 122
+      if letter.length == 1 && letter.downcase.ord >= "a".ord && letter.downcase.ord <= "z".ord
         unless game.guessed_letters.include?(letter.downcase)
           game.guessed_letters.push(letter.downcase)
           return letter
