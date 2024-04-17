@@ -1,10 +1,12 @@
 require_relative "player"
 
 class Game
-  attr_accessor :word, :guessed_letters, :player
+  attr_accessor :word, :correct_letters, :guessed_letters, :player
 
   def initialize(word)
     @word = word
+    @correct_letters = word.split("")
+    correct_letters.pop
     @guessed_letters = ["e","a","i","o","u"]
     print_board()
     @player = Player.new(self)
@@ -12,9 +14,6 @@ class Game
   end
 
   def print_board()
-    correct_letters = word.split("")
-    # Removes \n at the end of line
-    correct_letters.pop
     correct_letters.each do |letter|
       if(guessed_letters.include?(letter))
         print "#{letter} "
@@ -30,5 +29,5 @@ class Game
     print "\nGuessed letters: #{display}"
   end
 
-  
+
 end
