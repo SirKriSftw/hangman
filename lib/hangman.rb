@@ -18,5 +18,5 @@ if File.exist?(file)
   clean_file(file)
   word = select_word(file)
   puts word
-  game = Game.new();
+  game = Game.new(word);
 end
