@@ -38,7 +38,13 @@ class Player
         end
         puts "#{letter} has already been guessed"
       else
-      puts "#{letter} is either not a letter"
+        if letter.downcase == "save"
+          puts "saving game"
+        elsif letter.downcase == "word"
+          puts "Guess word: "
+        else
+          puts "#{letter} is either not a letter"
+        end
       end
     end
   end
