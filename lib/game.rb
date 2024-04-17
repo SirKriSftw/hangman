@@ -1,5 +1,9 @@
+require_relative "player"
+
 class Game
-  def initialize
-    puts "game on"
+  def initialize(word)
+    @word = word
+    @guessed_letters = []
+    @player = Player.new(self)
   end
 end

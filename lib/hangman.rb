@@ -1,4 +1,5 @@
 require_relative "game"
+require_relative "player"
 
 def clean_file(file)
   lines = File.readlines(file)
