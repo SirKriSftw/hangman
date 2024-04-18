@@ -1,4 +1,5 @@
 require_relative "player"
+require "date"
 
 class Game
   attr_accessor :word, :correct_letters, :guessed_letters, :player, :guessed
@@ -48,5 +49,16 @@ class Game
       self.guessed = true
       puts "You win!"
     end
+  end
+
+  def save_game()
+    saved_game = Marshal::dump(self)
+    save_file = File.new("lib/saved_games/test", "w")
+    save_file.puts(saved_game)
+    save_file.close
+  end
+
+  def self.load_game(file_content)
+    p Marshal::load(file_content)
   end
 end
