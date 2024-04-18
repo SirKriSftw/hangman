@@ -41,8 +41,6 @@ class Player
         if letter.downcase == "save"
           puts "saving game"
           game.save_game()
-          save_file = "lib/saved_games/test"
-          Game.load_game(File.read(save_file))
         elsif letter.downcase == "word"
           puts "Guess word: "
         else

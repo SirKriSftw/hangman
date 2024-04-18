@@ -52,10 +52,15 @@ class Game
   end
 
   def save_game()
+    curr_date_time = DateTime.now.strftime "%d/%m/%Y %H:%M".gsub("/", "-").gsub(":", "_")
+    save_dir = Dir.new("lib/saved_games")
     saved_game = Marshal::dump(self)
-    save_file = File.new("lib/saved_games/test", "w")
+    save_file = File.new("lib/saved_games/#{curr_date_time}", "w")
     save_file.puts(saved_game)
     save_file.close
+    if save_dir.children().length > 2
+      File.delete("lib/saved_games/#{save_dir.children()[0]}")
+    end
   end
 
   def self.load_game(file_content)
