@@ -58,8 +58,8 @@ class Game
     save_file = File.new("lib/saved_games/#{curr_date_time}", "w")
     save_file.puts(saved_game)
     save_file.close
-    if save_dir.children().length > 2
-      File.delete("lib/saved_games/#{save_dir.children()[0]}")
+    if save_dir.children().length > 4
+      File.delete("lib/saved_games/#{save_dir.children()[1]}")
     end
   end
 
