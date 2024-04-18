@@ -64,6 +64,6 @@ class Game
   end
 
   def self.load_game(file_content)
-    p Marshal::load(file_content)
+    Marshal::load(file_content)
   end
 end

@@ -3,17 +3,6 @@ require_relative "player"
 MIN_LENGTH = 5
 MAX_LENGTH = 12
 
-print "Would you like to load a game? (Y/N): "
-input = gets.chomp
-
-unless input.upcase == "Y"
-  play_new()
-else
-  play_load()
-end
-
-
-
 def clean_file(file)
   lines = File.readlines(file)
   cleaned_file = lines.map { |line| line.length < MIN_LENGTH || line.length > MAX_LENGTH ? "" : line}
@@ -42,4 +31,21 @@ def play_load()
   saved_games = load_dir.children[1..(load_dir.children.length-1)]
   saved_games.each_with_index {|game, i| puts "(#{i+1}) #{game}" }
   print "What game would you like to load?(1/2/3): "
+  input = gets.chomp
+  while input != "1" && input != "2" && input != "3" && input != "4"
+    print "#{input} is an invalid option try again (1/2/3/4): "
+    input = gets.chomp
+  end
+  file = load_dir.children[input.to_i]
+  game = Game.load_game(File.read("lib/saved_games/#{file}"))
+  game.play()
+end
+
+print "Would you like to load a game? (Y/N): "
+input = gets.chomp
+
+unless input.upcase == "Y"
+  play_new()
+else
+  play_load()
 end
